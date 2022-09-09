@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <link href="./repartee/static/css/main.chunk.css" rel="stylesheet">
+    <script src="./repartee/static/js/bundle.js"></script>
+    <script src="./repartee/static/js/main.chunk.js"></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: space-around;
+      }
+      #controls {
+        border: 2px solid black;  
+        display: flex;
+        flex-direction: column;
+        width: 40em;
+      }
+      #code {
+        border: 2px dotted black;
+        background-color: #eee;
+        height: 30em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="controls">
+      <button id="add">Add these Chunks</button>
+      <button id="reset">Reset to these Chunks</button>
+      <div>Type in the textbox below and click a button above</div>
+      <textarea id="code"></textarea>
+
+    </div>
+    <div id="editor"></div>
+
+    <script>
+      let parley;
+      let snippets = [
+        "circle(50, 'solid', 'red')",
+        "x = 100",
+        "x",
+      ];
+      let i = 0;
+      function addNext() {
+        parley.addChunk(snippets[i++]);
+        parley.run();
+      }
+      window.onload = () => {
+        const editor = document.getElementById("editor");
+        parley = window.embedableParley.renderParley(editor);
+        const addChunks = document.getElementById("add");
+        const reset = document.getElementById("add");
+        const code = document.getElementById("code")
+        addChunks.addEventListener("click", () => {
+          const newChunks = code.value.split("\n");
+          newChunks.forEach((c) => {
+            parley.addChunk(c);
+          });
+          parley.run();
+        });
+        reset.addEventListener("click", () => {
+          const newChunks = code.value.split("\n");
+          newChunks.resetChunks(newChunks);
+          parley.run();
+        });
+      }
+    </script>
+  </body>
+
+</html>
+
