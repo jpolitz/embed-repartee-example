@@ -3,6 +3,12 @@
 This is a demo of embedding Parley/Repartee in another page and controlling it
 programmatically.
 
+To run, you need to start a web browser (e.g. python3 -m http.server) in the
+main directory – the webworker will not load from a `file:///` url. Then load
+`example.html`. It should look like this:
+
+![](2022-09-09-14-19-43.png)
+
 The current interface is:
 
 ```
@@ -21,3 +27,6 @@ type Parley :: {
     // rerun chunks
     run :: () => void 
 }
+```
+
+See `example.html` for how the demo page is set up.

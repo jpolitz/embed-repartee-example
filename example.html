@@ -9,7 +9,6 @@
         justify-content: space-around;
       }
       #controls {
-        border: 2px solid black;  
         display: flex;
         flex-direction: column;
         width: 40em;
@@ -34,21 +33,12 @@
 
     <script>
       let parley;
-      let snippets = [
-        "circle(50, 'solid', 'red')",
-        "x = 100",
-        "x",
-      ];
-      let i = 0;
-      function addNext() {
-        parley.addChunk(snippets[i++]);
-        parley.run();
-      }
       window.onload = () => {
         const editor = document.getElementById("editor");
         parley = window.embedableParley.renderParley(editor);
+
         const addChunks = document.getElementById("add");
-        const reset = document.getElementById("add");
+        const reset = document.getElementById("reset");
         const code = document.getElementById("code")
         addChunks.addEventListener("click", () => {
           const newChunks = code.value.split("\n");
@@ -59,7 +49,7 @@
         });
         reset.addEventListener("click", () => {
           const newChunks = code.value.split("\n");
-          newChunks.resetChunks(newChunks);
+          parley.resetChunks(newChunks);
           parley.run();
         });
       }
