@@ -1,0 +1,19 @@
+{
+  "name": "embed-repartee-example",
+  "version": "0.0.1",
+  "description": "This is a demo of embedding Parley/Repartee in another page and controlling it programmatically.",
+  "main": "pyret.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpolitz/embed-repartee-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpolitz/embed-repartee-example/issues"
+  },
+  "homepage": "https://github.com/jpolitz/embed-repartee-example#readme"
+}
