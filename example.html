@@ -36,6 +36,7 @@
       window.onload = () => {
         const editor = document.getElementById("editor");
         parley = window.embedableParley.renderParley(editor);
+        parley.onReady(() => console.log("ready"))
 
         const addChunks = document.getElementById("add");
         const reset = document.getElementById("reset");
